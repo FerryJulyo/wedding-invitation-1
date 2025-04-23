@@ -1,145 +1,68 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan Rani & Budi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Rani & Budi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Welcome -->
-  <header>
-    <h1 data-aos="zoom-in">Rani & Budi</h1>
-    <p data-aos="fade-up">Mengundang Anda ke hari istimewa kami</p>
-    <a href="#profil" class="btn" data-aos="fade-up">Lihat Detail</a>
-  </header>
+    <header>
+        <h1 data-aos="zoom-in">Rani & Budi</h1>
+        <p data-aos="fade-up">Dengan sukacita kami mengundang Anda untuk menjadi bagian dari hari bahagia kami</p>
+        <a href="#acara" class="btn">Lihat Undangan</a>
+    </header>
 
-  <!-- Profil Pasangan -->
-  <section id="profil" class="section-alt" data-aos="fade-up">
-    <h2>Profil Pasangan</h2>
-    <div class="couple">
-      <div class="person">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rani">
-        <h3>Rani Amelia</h3>
-        <p>Seorang wanita penuh cinta dan ceria. Hobi memasak dan membaca novel romantis.</p>
-      </div>
-      <div class="person">
-        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Budi">
-        <h3>Budi Santoso</h3>
-        <p>Lelaki penyabar dan penyayang. Pecinta kopi dan fotografi.</p>
-      </div>
-    </div>
-  </section>
+    <section id="acara" data-aos="fade-up">
+        <div class="ribbon">Detail Acara</div>
+        <p>Pernikahan akan dilangsungkan pada:</p>
+        <p><strong>Sabtu, 1 Januari 2026</strong><br>di Gedung Graha Mulya, Jakarta</p>
+        <div class="countdown" id="countdown"></div>
+    </section>
 
-  <!-- Love Story -->
-  <section id="love-story" data-aos="fade-up">
-    <h2>Kisah Cinta Kami</h2>
-    <p>Kami bertemu di sebuah seminar kampus, lalu menjalin hubungan yang indah selama 5 tahun hingga akhirnya memutuskan untuk melangkah ke jenjang yang lebih serius.</p>
-    <ul style="text-align:left; max-width:600px; margin:auto;">
-      <li>📅 2018: Pertama bertemu</li>
-      <li>💌 2020: Resmi berpacaran</li>
-      <li>💍 2025: Lamaran</li>
-      <li>💒 2026: Menikah</li>
-    </ul>
-  </section>
+    <section id="pasangan" data-aos="fade-up">
+        <div class="ribbon">Pasangan Bahagia</div>
+        <div class="couple">
+            <div class="person">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rani">
+                <h3>Rani Amelia</h3>
+            </div>
+            <div class="person">
+                <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Budi">
+                <h3>Budi Santoso</h3>
+            </div>
+        </div>
+    </section>
 
-  <!-- Galeri -->
-  <section class="section-alt" id="galeri" data-aos="fade-up">
-    <h2>Galeri Momen Kami</h2>
-    <div class="gallery">
-      <img src="https://source.unsplash.com/300x200/?couple" alt="foto 1">
-      <img src="https://source.unsplash.com/300x200/?wedding" alt="foto 2">
-      <img src="https://source.unsplash.com/300x200/?engagement" alt="foto 3">
-    </div>
-  </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
-  <!-- Detail Acara -->
-  <section id="acara" data-aos="fade-up">
-    <h2>Detail Acara</h2>
-    <p>🕌 Akad Nikah: Sabtu, 1 Januari 2026 - 10.00 WIB<br>🎉 Resepsi: 13.00 WIB - selesai</p>
-    <p>📍 Gedung Graha Mulya, Jakarta</p>
-    <iframe src="https://www.google.com/maps/embed?..." allowfullscreen=""></iframe>
-    <p><strong>Dress Code:</strong> Batik Formal</p>
-    <div class="countdown" id="countdown"></div>
-  </section>
+        const countDownDate = new Date("Jan 1, 2026 10:00:00").getTime();
+        const countdownEl = document.getElementById("countdown");
 
-  <!-- RSVP -->
-  <section class="section-alt" id="rsvp" data-aos="fade-up">
-    <h2>RSVP</h2>
-    <form>
-      <input type="text" placeholder="Nama Lengkap" required>
-      <input type="number" placeholder="Jumlah Tamu" required>
-      <select>
-        <option>Pilih Menu Makanan</option>
-        <option>Ayam</option>
-        <option>Ikan</option>
-        <option>Vegetarian</option>
-      </select>
-      <button class="btn" type="submit">Konfirmasi Kehadiran</button>
-    </form>
-  </section>
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
 
-  <!-- Wedding Gift -->
-  <section id="gift" data-aos="fade-up">
-    <h2>Wedding Gift</h2>
-    <p>Doa restu Anda adalah hadiah terindah bagi kami. Namun, jika ingin memberi hadiah:</p>
-    <div class="card">
-      <p><strong>Rani Amelia</strong><br>BNI - 123456789</p>
-      <p><strong>Budi Santoso</strong><br>BCA - 987654321</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/QR_code_example.svg/1200px-QR_code_example.svg.png" width="150" alt="QRIS">
-    </div>
-  </section>
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  <!-- Guestbook -->
-  <section class="section-alt" id="guestbook" data-aos="fade-up">
-    <h2>Buku Tamu</h2>
-    <form>
-      <input type="text" placeholder="Nama">
-      <textarea placeholder="Tulis ucapan Anda..." rows="4"></textarea>
-      <button class="btn" type="submit">Kirim Ucapan</button>
-    </form>
-  </section>
+            countdownEl.innerHTML = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
 
-  <!-- FAQ -->
-  <section id="faq" data-aos="fade-up">
-    <h2>FAQ</h2>
-    <div class="card">
-      <p><strong>Apakah anak kecil boleh ikut?</strong><br>Ya, acara kami ramah anak.</p>
-      <p><strong>Apakah tersedia parkir?</strong><br>Tersedia parkir luas di area gedung.</p>
-    </div>
-  </section>
-
-  <!-- Doa -->
-  <section class="section-alt" id="doa" data-aos="fade-up">
-    <h2>Doa & Harapan</h2>
-    <p>"Semoga Allah memberkahimu dalam segala hal, menyatukan kalian dalam kebaikan dan keberkahan."</p>
-  </section>
-
-  <!-- Audio BGM -->
-  <audio autoplay loop hidden>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-  </audio>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    const countdownEl = document.getElementById("countdown");
-    const countDownDate = new Date("Jan 1, 2026 10:00:00").getTime();
-    const x = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countDownDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdownEl.innerHTML = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
-      if (distance < 0) {
-        clearInterval(x);
-        countdownEl.innerHTML = "Acara sedang berlangsung!";
-      }
-    }, 1000);
-  </script>
+            if (distance < 0) {
+                clearInterval(interval);
+                countdownEl.innerHTML = "Acara sedang berlangsung!";
+            }
+        }, 1000);
+    </script>
 </body>
+
 </html>
