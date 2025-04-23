@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Rani & Budi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,26 +19,21 @@
     <header>
         <h1 data-aos="zoom-in">Rani & Budi</h1>
         <p data-aos="fade-up">Dengan sukacita kami mengundang Anda untuk menjadi bagian dari hari bahagia kami</p>
-        <a href="#mempelai" class="btn">Lihat Undangan</a>
+        <a href="#pasangan" class="btn">Lihat Undangan</a>
     </header>
-
-    <section id="mempelai" data-aos="fade-up">
-        <div class="ribbon">Mempelai</div>
-        <div class="bridegroom">
+    <section id="pasangan" data-aos="fade-up">
+        <div class="ribbon">Pasangan Bahagia</div>
+        <div class="couple">
             <div class="person">
-                <img src="https://source.unsplash.com/200x200/?bride" alt="Rani">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rani">
                 <h3>Rani Amelia</h3>
-                <p>Putri dari Bapak Ahmad & Ibu Siti</p>
             </div>
-            <div class="heart">💖</div>
             <div class="person">
-                <img src="https://source.unsplash.com/200x200/?groom" alt="Budi">
+                <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Budi">
                 <h3>Budi Santoso</h3>
-                <p>Putra dari Bapak Darto & Ibu Lilis</p>
             </div>
         </div>
     </section>
-
     <section id="acara" data-aos="fade-up">
         <div class="ribbon">Detail Acara</div>
         <p><strong>Sabtu, 1 Januari 2026</strong><br>di Gedung Graha Mulya, Jakarta</p>
@@ -56,9 +51,12 @@
     <section id="galeri" data-aos="fade-up">
         <div class="ribbon">Galeri Kenangan</div>
         <div class="gallery">
-            <a href="https://source.unsplash.com/600x800/?wedding,1" data-lightbox="wedding"><img src="https://source.unsplash.com/300x400/?wedding,1"></a>
-            <a href="https://source.unsplash.com/600x800/?wedding,2" data-lightbox="wedding"><img src="https://source.unsplash.com/300x400/?wedding,2"></a>
-            <a href="https://source.unsplash.com/600x800/?wedding,3" data-lightbox="wedding"><img src="https://source.unsplash.com/300x400/?wedding,3"></a>
+            <a href="https://source.unsplash.com/600x800/?wedding,1" data-lightbox="wedding"><img
+                    src="https://source.unsplash.com/300x400/?wedding,1"></a>
+            <a href="https://source.unsplash.com/600x800/?wedding,2" data-lightbox="wedding"><img
+                    src="https://source.unsplash.com/300x400/?wedding,2"></a>
+            <a href="https://source.unsplash.com/600x800/?wedding,3" data-lightbox="wedding"><img
+                    src="https://source.unsplash.com/300x400/?wedding,3"></a>
         </div>
     </section>
 
@@ -74,9 +72,12 @@
     <section id="ucapan" data-aos="fade-up">
         <div class="ribbon">Ucapan dari Tamu</div>
         <div class="wishes" id="wishList">
-            <div class="wish-item"><strong>Ani:</strong><br>Selamat menempuh hidup baru, Rani & Budi!</div>
-            <div class="wish-item"><strong>Rizal:</strong><br>Semoga bahagia selalu dan langgeng selamanya!</div>
+            <!-- Ucapan akan ditampilkan di sini -->
         </div>
+        <form onsubmit="return sendWish()">
+            <textarea id="wishMessage" rows="4" placeholder="Tulis ucapan Anda di sini" required></textarea>
+            <button type="submit" class="btn">Kirim Ucapan</button>
+        </form>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -106,11 +107,51 @@
         function sendRSVP() {
             const nama = document.getElementById("nama").value;
             const pesan = document.getElementById("pesan").value;
-            const waNumber = "6281234567890";
+            const waNumber = "6282232848979";
             const message = encodeURIComponent(`Halo, saya ${nama}. ${pesan}`);
             window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
             return false;
         }
+    </script>
+    <script>
+        // Ambil nama dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || 'Tamu'; // Default 'Tamu' jika nama tidak ditemukan
+        const wishList = document.getElementById('wishList');
+        
+        // Menyimpan ucapan di localStorage
+        function saveWish(name, message) {
+            const wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+            wishes.push({ name, message });
+            localStorage.setItem('weddingWishes', JSON.stringify(wishes));
+            return wishes;
+        }
+    
+        // Menampilkan ucapan
+        function displayWishes() {
+            const wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+            wishList.innerHTML = '';
+            wishes.forEach(wish => {
+                const wishElement = document.createElement('div');
+                wishElement.classList.add('wish-item');
+                wishElement.innerHTML = `<strong>${wish.name}:</strong><br>${wish.message}`;
+                wishList.appendChild(wishElement);
+            });
+        }
+    
+        // Kirim ucapan
+        function sendWish() {
+            const wishMessage = document.getElementById('wishMessage').value;
+            if (wishMessage) {
+                const wishes = saveWish(name, wishMessage);
+                displayWishes();
+                document.getElementById('wishMessage').value = ''; // Reset input
+            }
+            return false; // Prevent form submission
+        }
+    
+        // Tampilkan ucapan yang sudah ada saat halaman dimuat
+        displayWishes();
     </script>
 </body>
 

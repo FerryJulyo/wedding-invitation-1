@@ -1,183 +1,164 @@
-:root {
-    --primary-color: #ff6b81;
-    --secondary-color: #ffecec;
-    --text-color: #333;
-    --accent-color: #ffc107;
-}
+ :root {
+      --primary-color: #ff6b81;
+      --secondary-color: #ffecec;
+      --text-color: #333;
+      --accent-color: #ffc107;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    overflow-x: hidden;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--secondary-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
 
-header {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
 
-header h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 5rem;
-    margin-bottom: 0.5em;
-    animation: fadeInDown 2s ease;
-}
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 5rem;
+      margin-bottom: 0.5em;
+      animation: fadeInDown 2s ease;
+    }
 
-header p {
-    font-size: 1.3rem;
-    animation: fadeInUp 2s ease;
-}
+    header p {
+      font-size: 1.3rem;
+      animation: fadeInUp 2s ease;
+    }
 
-.btn {
-    padding: 12px 30px;
-    background: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    border-radius: 30px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 2em;
-    transition: all 0.3s ease;
-    animation: fadeInUp 2.5s ease;
-}
+    .btn {
+      padding: 12px 30px;
+      background: var(--primary-color);
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2em;
+      transition: all 0.3s ease;
+      animation: fadeInUp 2.5s ease;
+    }
 
-.btn:hover {
-    background: var(--accent-color);
-    transform: scale(1.05);
-}
+    .btn:hover {
+      background: var(--accent-color);
+      transform: scale(1.05);
+    }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
 
-.ribbon {
-    background: var(--primary-color);
-    padding: 20px;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    margin: 60px auto 20px;
-    max-width: 400px;
-    animation: pulse 2s infinite;
-}
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
 
-.gallery img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
+    .ribbon {
+      background: var(--primary-color);
+      padding: 20px;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-top-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+      margin: 60px auto 20px;
+      max-width: 400px;
+      animation: pulse 2s infinite;
+    }
 
-.gallery img:hover {
-    transform: scale(1.05);
-}
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
 
-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
 
-input,
-textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
 
-.story {
-    background: #fff8f8;
-    border-left: 5px solid var(--primary-color);
-    padding: 20px;
-    max-width: 700px;
-    margin: 20px auto;
-    font-style: italic;
-}
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
 
-.wishes {
-    max-width: 700px;
-    margin: 0 auto;
-}
+    .story {
+      background: #fff8f8;
+      border-left: 5px solid var(--primary-color);
+      padding: 20px;
+      max-width: 700px;
+      margin: 20px auto;
+      font-style: italic;
+    }
 
-.wish-item {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-    text-align: left;
-}
+    .wishes {
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-form label {
-    display: block;
-    text-align: left;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
+    .wish-item {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      text-align: left;
+    }
 
-form input,
-form textarea {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    transition: 0.3s ease;
-}
+    .couple {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 3em;
+      }
+    
+      .person {
+        max-width: 300px;
+        text-align: center;
+        animation: float 4s ease-in-out infinite;
+      }
+    
+      .person img {
+        width: 100%;
+        border-radius: 50%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        border: 8px solid #fff;
+      }
+    
+      .person h3 {
+        margin-top: 1em;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+      }
 
-form input:focus,
-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
-}
-
-section#rsvp {
-    background: #fff8f8;
-    border-top: 3px dashed var(--primary-color);
-    border-bottom: 3px dashed var(--primary-color);
-}
-
-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 60px 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-/* Ornamen bunga halus sebagai background */
-section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 0;
-}
-
-section .container {
-    z-index: 1;
-}
+    @keyframes fadeInDown { from {opacity: 0; transform: translateY(-50px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(50px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
