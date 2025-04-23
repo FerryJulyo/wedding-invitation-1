@@ -1,35 +1,68 @@
-/* Tambahkan bunga berguguran */
-@keyframes flowerFall {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px) rotate(0deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(800px) rotate(360deg);
-    }
+:root {
+    --primary-color: #ff6b81;
+    --secondary-color: #ffecec;
+    --text-color: #333;
+    --accent-color: #ffc107;
 }
 
-.flowers::after {
-    content: "🌸";
-    position: fixed;
-    top: -10px;
-    left: 50%;
-    animation: flowerFall 5s linear infinite;
-    font-size: 30px;
-    opacity: 0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Responsif layout */
-section {
-    padding: 60px 20px;
-    min-height: auto;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
 header {
-    height: 80vh;
-    text-align: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    margin-bottom: 0.5em;
+    animation: fadeInDown 2s ease;
+}
+
+header p {
+    font-size: 1.3rem;
+    animation: fadeInUp 2s ease;
+}
+
+.btn {
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2em;
+    transition: all 0.3s ease;
+    animation: fadeInUp 2.5s ease;
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
 .ribbon {
@@ -40,28 +73,111 @@ header {
     font-weight: bold;
     border-top-left-radius: 100px;
     border-bottom-right-radius: 100px;
-    margin: 40px auto;
-    max-width: 90%;
+    margin: 60px auto 20px;
+    max-width: 400px;
     animation: pulse 2s infinite;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 3.5rem;
-    }
+.gallery img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
 
-    .gallery img {
-        width: 100%;
-        max-width: 90%;
-        margin: 10px 0;
-    }
+.gallery img:hover {
+    transform: scale(1.05);
+}
 
-    .form {
-        width: 100%;
-    }
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
 
-    .wish-item {
-        font-size: 1rem;
-    }
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.story {
+    background: #fff8f8;
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    font-style: italic;
+}
+
+.wishes {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.wish-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+form input,
+form textarea {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
+}
+
+section#rsvp {
+    background: #fff8f8;
+    border-top: 3px dashed var(--primary-color);
+    border-bottom: 3px dashed var(--primary-color);
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Ornamen bunga halus sebagai background */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+section .container {
+    z-index: 1;
 }
