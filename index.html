@@ -5,47 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Rani & Budi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <audio autoplay loop hidden>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_f29e82c60e.mp3" type="audio/mpeg">
+    </audio>
+
     <header>
         <h1 data-aos="zoom-in">Rani & Budi</h1>
         <p data-aos="fade-up">Dengan sukacita kami mengundang Anda untuk menjadi bagian dari hari bahagia kami</p>
         <a href="#acara" class="btn">Lihat Undangan</a>
     </header>
 
-    <section id="acara" data-aos="fade-up">
-        <div class="ribbon">Detail Acara</div>
-        <p>Pernikahan akan dilangsungkan pada:</p>
-        <p><strong>Sabtu, 1 Januari 2026</strong><br>di Gedung Graha Mulya, Jakarta</p>
-        <div class="countdown" id="countdown"></div>
-    </section>
-
-    <section id="pasangan" data-aos="fade-up">
-        <div class="ribbon">Pasangan Bahagia</div>
-        <div class="couple">
+    <section id="mempelai" data-aos="fade-up">
+        <div class="ribbon">Mempelai</div>
+        <div class="bridegroom">
             <div class="person">
-                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rani">
+                <img src="https://source.unsplash.com/200x200/?bride" alt="Rani">
                 <h3>Rani Amelia</h3>
+                <p>Putri dari Bapak Ahmad & Ibu Siti</p>
             </div>
+            <div class="heart">💖</div>
             <div class="person">
-                <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Budi">
+                <img src="https://source.unsplash.com/200x200/?groom" alt="Budi">
                 <h3>Budi Santoso</h3>
+                <p>Putra dari Bapak Darto & Ibu Lilis</p>
             </div>
         </div>
     </section>
 
+    <section id="acara" data-aos="fade-up">
+        <div class="ribbon">Detail Acara</div>
+        <p><strong>Sabtu, 1 Januari 2026</strong><br>di Gedung Graha Mulya, Jakarta</p>
+        <div id="countdown" class="countdown"></div>
+    </section>
+
+    <section id="story" data-aos="fade-up">
+        <div class="ribbon">Cerita Cinta Kami</div>
+        <div class="story">
+            Kami pertama kali bertemu saat kuliah di Yogyakarta. Setelah bertahun-tahun saling mengenal dan mendukung
+            satu sama lain, kami akhirnya memutuskan untuk mengikat janji suci pernikahan.
+        </div>
+    </section>
+
+    <section id="galeri" data-aos="fade-up">
+        <div class="ribbon">Galeri Kenangan</div>
+        <div class="gallery">
+            <a href="https://source.unsplash.com/600x800/?wedding,1" data-lightbox="wedding"><img src="https://source.unsplash.com/300x400/?wedding,1"></a>
+            <a href="https://source.unsplash.com/600x800/?wedding,2" data-lightbox="wedding"><img src="https://source.unsplash.com/300x400/?wedding,2"></a>
+            <a href="https://source.unsplash.com/600x800/?wedding,3" data-lightbox="wedding"><img src="https://source.unsplash.com/300x400/?wedding,3"></a>
+        </div>
+    </section>
+
+    <section id="rsvp" data-aos="fade-up">
+        <div class="ribbon">Konfirmasi Kehadiran</div>
+        <form onsubmit="return sendRSVP()">
+            <input type="text" id="nama" placeholder="Nama Anda" required>
+            <textarea id="pesan" rows="4" placeholder="Ucapan atau doa"></textarea>
+            <button type="submit" class="btn">Kirim RSVP via WhatsApp</button>
+        </form>
+    </section>
+
+    <section id="ucapan" data-aos="fade-up">
+        <div class="ribbon">Ucapan dari Tamu</div>
+        <div class="wishes" id="wishList">
+            <div class="wish-item"><strong>Ani:</strong><br>Selamat menempuh hidup baru, Rani & Budi!</div>
+            <div class="wish-item"><strong>Rizal:</strong><br>Semoga bahagia selalu dan langgeng selamanya!</div>
+        </div>
+    </section>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
         AOS.init();
 
         const countDownDate = new Date("Jan 1, 2026 10:00:00").getTime();
         const countdownEl = document.getElementById("countdown");
-
         const interval = setInterval(() => {
             const now = new Date().getTime();
             const distance = countDownDate - now;
@@ -62,6 +102,15 @@
                 countdownEl.innerHTML = "Acara sedang berlangsung!";
             }
         }, 1000);
+
+        function sendRSVP() {
+            const nama = document.getElementById("nama").value;
+            const pesan = document.getElementById("pesan").value;
+            const waNumber = "6281234567890";
+            const message = encodeURIComponent(`Halo, saya ${nama}. ${pesan}`);
+            window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+            return false;
+        }
     </script>
 </body>
 
