@@ -18,7 +18,7 @@
 
     <header>
         <h1 data-aos="zoom-in">Rani & Budi</h1>
-        <p data-aos="fade-up">Dengan sukacita kami mengundang Anda untuk menjadi bagian dari hari bahagia kami</p>
+        <p data-aos="fade-up">Dengan sukacita kami mengundang saudara/saudari <b id="userName"></b> untuk menjadi bagian dari hari bahagia kami</p>
         <a href="#pasangan" class="btn">Lihat Undangan</a>
     </header>
     <section id="pasangan" data-aos="fade-up">
@@ -73,7 +73,7 @@
         <div class="ribbon">Ucapan dari Tamu</div>
         <div class="wishes" id="wishList">
             <!-- Ucapan akan ditampilkan di sini -->
-        </div>
+        </div><br>
         <form onsubmit="return sendWish()">
             <textarea id="wishMessage" rows="4" placeholder="Tulis ucapan Anda di sini" required></textarea>
             <button type="submit" class="btn">Kirim Ucapan</button>
@@ -118,7 +118,9 @@
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name') || 'Tamu'; // Default 'Tamu' jika nama tidak ditemukan
         const wishList = document.getElementById('wishList');
-        
+
+        document.getElementById('userName').textContent = name;
+
         // Menyimpan ucapan di localStorage
         function saveWish(name, message) {
             const wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
@@ -126,7 +128,7 @@
             localStorage.setItem('weddingWishes', JSON.stringify(wishes));
             return wishes;
         }
-    
+
         // Menampilkan ucapan
         function displayWishes() {
             const wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
@@ -138,7 +140,7 @@
                 wishList.appendChild(wishElement);
             });
         }
-    
+
         // Kirim ucapan
         function sendWish() {
             const wishMessage = document.getElementById('wishMessage').value;
@@ -149,7 +151,7 @@
             }
             return false; // Prevent form submission
         }
-    
+
         // Tampilkan ucapan yang sudah ada saat halaman dimuat
         displayWishes();
     </script>
